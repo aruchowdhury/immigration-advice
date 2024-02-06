@@ -9,3 +9,24 @@ html {
 h1 {
   font-family: var(--font-nunito);
 }
+
+html {
+}
+
+body {
+  background: rgb(232, 231, 235);
+  background: linear-gradient(
+    90deg,
+    rgba(232, 231, 235, 1) 0%,
+    rgba(243, 247, 245, 1) 42%
+  );
+}
+
+.card-bg {
+  background: rgb(232, 231, 235);
+  background: linear-gradient(
+    90deg,
+    rgba(232, 231, 235, 1) 0%,
+    rgba(243, 247, 245, 1) 42%
+  );
+}
