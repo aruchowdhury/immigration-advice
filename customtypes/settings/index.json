@@ -83,6 +83,37 @@
             }
           }
         }
+      },
+      "social_links": {
+        "type": "Group",
+        "config": {
+          "label": "Social Links",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "GeoPoint",
+              "config": {
+                "label": "Label"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
       }
     }
   }

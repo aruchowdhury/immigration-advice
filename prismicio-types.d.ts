@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type HomePageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Home Page documents
+ */
+interface HomePageDocumentData {
+  /**
+   * Slice Zone field in *Home Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Home Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: home_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Home Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Home Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: home_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Home Page document from Prismic
+ *
+ * - **API ID**: `home_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomePageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HomePageDocumentData>,
+    "home_page",
+    Lang
+  >;
+
 /**
  * Item in *Settings → Header Navigation*
  */
@@ -52,6 +117,41 @@ export interface SettingsDocumentDataFooterNavigationItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+}
+
+/**
+ * Item in *Settings → Social Links*
+ */
+export interface SettingsDocumentDataSocialLinksItem {
+  /**
+   * Label field in *Settings → Social Links*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[].label
+   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   */
+  label: prismic.GeoPointField;
+
+  /**
+   * Link field in *Settings → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Image field in *Settings → Social Links*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -127,6 +227,19 @@ interface SettingsDocumentData {
   footer_navigation: prismic.GroupField<
     Simplify<SettingsDocumentDataFooterNavigationItem>
   >;
+
+  /**
+   * Social Links field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_links: prismic.GroupField<
+    Simplify<SettingsDocumentDataSocialLinksItem>
+  >;
 }
 
 /**
@@ -145,7 +258,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = SettingsDocument;
+export type AllDocumentTypes = HomePageDocument | SettingsDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -157,10 +270,14 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      HomePageDocument,
+      HomePageDocumentData,
+      HomePageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataHeaderNavigationItem,
       SettingsDocumentDataFooterNavigationItem,
+      SettingsDocumentDataSocialLinksItem,
       AllDocumentTypes,
     };
   }

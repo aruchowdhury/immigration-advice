@@ -9,8 +9,8 @@ async function Header() {
   const settings = await client.getSingle("settings");
 
   return (
-    <header>
-      <div className="mx-auto h-28 flex justify-between items-center">
+    <header className="w-full">
+      <div className="max-w-screen-xl mx-auto h-28 flex justify-between items-center">
         <Link href="/" className="z-10">
           <Image
             src={settings.data.site_logo.url}

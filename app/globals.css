@@ -30,3 +30,8 @@ body {
     rgba(243, 247, 245, 1) 42%
   );
 }
+
+.container-max-width {
+  width: 100%;
+  max-width: 1400px;
+}
