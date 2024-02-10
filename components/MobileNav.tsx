@@ -11,7 +11,7 @@ function MobileNav({ settings }) {
     <>
       <div
         onClick={() => setMobileNav(!mobileNav)}
-        className="cursor-pointer z-10 text-red-700 md:hidden"
+        className="cursor-pointer z-20 text-red-700 md:hidden"
       >
         {mobileNav ? (
           <AiOutlineClose className="w-8 h-8" />

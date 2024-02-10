@@ -28,6 +28,27 @@
           "placeholder": ""
         }
       },
+      "contact_email": {
+        "type": "Text",
+        "config": {
+          "label": "Contact Email",
+          "placeholder": ""
+        }
+      },
+      "contact_phone_no": {
+        "type": "Text",
+        "config": {
+          "label": "Contact Phone No",
+          "placeholder": ""
+        }
+      },
+      "contact_address": {
+        "type": "Text",
+        "config": {
+          "label": "Contact Address",
+          "placeholder": ""
+        }
+      },
       "og_image": {
         "type": "Image",
         "config": {
@@ -91,9 +112,10 @@
           "repeat": true,
           "fields": {
             "label": {
-              "type": "GeoPoint",
+              "type": "Text",
               "config": {
-                "label": "Label"
+                "label": "Label",
+                "placeholder": ""
               }
             },
             "link": {

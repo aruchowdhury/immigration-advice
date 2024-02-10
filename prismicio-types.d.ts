@@ -137,12 +137,12 @@ export interface SettingsDocumentDataSocialLinksItem {
   /**
    * Label field in *Settings → Social Links*
    *
-   * - **Field Type**: GeoPoint
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: settings.social_links[].label
-   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  label: prismic.GeoPointField;
+  label: prismic.KeyTextField;
 
   /**
    * Link field in *Settings → Social Links*
@@ -201,6 +201,39 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
+
+  /**
+   * Contact Email field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contact_email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contact_email: prismic.KeyTextField;
+
+  /**
+   * Contact Phone No field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contact_phone_no
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contact_phone_no: prismic.KeyTextField;
+
+  /**
+   * Contact Address field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contact_address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contact_address: prismic.KeyTextField;
 
   /**
    * OG Image field in *Settings*
