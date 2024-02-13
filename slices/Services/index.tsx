@@ -23,9 +23,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
             field={slice.primary.title}
             components={{
               heading2: ({ children }) => (
-                <h2 className="text-3xl font-bold leading-tight sm:text-4xl xl:text-5xl mb-6">
-                  {children}
-                </h2>
+                <h2 className="leading-tight mb-6">{children}</h2>
               ),
             }}
           />
@@ -55,9 +53,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
                     field={item.service_name}
                     components={{
                       heading3: ({ children }) => (
-                        <h3 className="mt-6 text-2xl font-bold text-gray-900 sm:mt-10">
-                          {children}
-                        </h3>
+                        <h3 className="mt-6 sm:mt-10">{children}</h3>
                       ),
                     }}
                   />
@@ -65,9 +61,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
                     field={item.service_description}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className="mt-6 text-base text-gray-600">
-                          {children}
-                        </p>
+                        <p className="mt-6">{children}</p>
                       ),
                     }}
                   />

@@ -1,0 +1,93 @@
+{
+  "id": "call_to_action",
+  "type": "SharedSlice",
+  "name": "CallToAction",
+  "description": "CallToAction",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "cta_image": {
+          "type": "Image",
+          "config": {
+            "label": "CTA Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "cta_ttile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Ttile",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "cta_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "cta_btn_title_1": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Btn Title 1",
+            "placeholder": ""
+          }
+        },
+        "cta_btn_link_1": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Btn Link 1",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_btn_title_2": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Btn Title 2",
+            "placeholder": ""
+          }
+        },
+        "cta_btn_link_2": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Btn Link 2",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_announcement_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Announcement Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {
+        "cta_advisor_image": {
+          "type": "Image",
+          "config": {
+            "label": "CTA Advisor Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

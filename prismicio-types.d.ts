@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomePageDocumentDataSlicesSlice = ServicesSlice | HeroSlice;
+type HomePageDocumentDataSlicesSlice =
+  | CallToActionSlice
+  | ServicesSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -79,6 +82,67 @@ export type HomePageDocument<Lang extends string = string> =
     "home_page",
     Lang
   >;
+
+type PageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Page documents
+ */
+interface PageDocumentData {
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
  * Item in *Settings → Header Navigation*
@@ -302,7 +366,140 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomePageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | HomePageDocument
+  | PageDocument
+  | SettingsDocument;
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * CTA Image field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cta_image: prismic.ImageField<never>;
+
+  /**
+   * CTA Ttile field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_ttile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cta_ttile: prismic.TitleField;
+
+  /**
+   * CTA Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cta_text: prismic.RichTextField;
+
+  /**
+   * CTA Btn Title 1 field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_btn_title_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_btn_title_1: prismic.KeyTextField;
+
+  /**
+   * CTA Btn Link 1 field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_btn_link_1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_btn_link_1: prismic.LinkField;
+
+  /**
+   * CTA Btn Title 2 field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_btn_title_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_btn_title_2: prismic.KeyTextField;
+
+  /**
+   * CTA Btn Link 2 field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_btn_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_btn_link_2: prismic.LinkField;
+
+  /**
+   * CTA Announcement Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.cta_announcement_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cta_announcement_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceDefaultItem {
+  /**
+   * CTA Advisor Image field in *CallToAction → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].cta_advisor_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cta_advisor_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CallToActionSliceDefaultPrimary>,
+  Simplify<CallToActionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation = CallToActionSliceDefault;
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  "call_to_action",
+  CallToActionSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -549,12 +746,20 @@ declare module "@prismicio/client" {
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataHeaderNavigationItem,
       SettingsDocumentDataFooterNavigationItem,
       SettingsDocumentDataSocialLinksItem,
       AllDocumentTypes,
+      CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceDefaultItem,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

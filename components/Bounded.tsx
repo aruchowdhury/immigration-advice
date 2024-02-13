@@ -14,7 +14,7 @@ function Bounded({
 }: BoundedProps) {
   return (
     <Comp className={clsx("w-full relative", className)} {...restProps}>
-      <div className="max-w-screen-xl px-4 lg:px-0 mx-auto flex">
+      <div className="max-w-screen-xl px-4 py-6 lg:px-0 mx-auto flex">
         {children}
       </div>
     </Comp>
