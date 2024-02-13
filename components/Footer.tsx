@@ -8,7 +8,7 @@ async function Footer() {
   const settings = await client.getSingle("settings");
   return (
     <footer className="w-full">
-      <div className="max-w-screen-xl mx-auto md:py-8 px-2 md:px-4 lg:px-0">
+      <div className="max-w-screen-xl mx-auto md:py-8 px-4 lg:px-0">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex flex-col justify-start items-start">
             <Link href="/" className="self-start mb-4 sm:mb-0">

@@ -20,7 +20,7 @@ function MobileNav({ settings }) {
         )}
       </div>
       {mobileNav && (
-        <ul className="card-bg flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen text-red-700">
+        <ul className="card-bg flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen text-red-700 z-10">
           {settings.data.header_navigation.map(({ link, label }) => (
             <li
               key={label}

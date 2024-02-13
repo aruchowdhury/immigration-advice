@@ -28,12 +28,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               ),
             }}
           />
-
           <PrismicRichText
             field={slice.primary.text}
             components={{
               paragraph: ({ children }) => (
-                <p className="text-2xl">{children}</p>
+                <p className="text-lg md:text-xl">{children}</p>
               ),
             }}
           />

@@ -10,8 +10,8 @@ async function Header() {
 
   return (
     <header className="w-full">
-      <div className="max-w-screen-xl px-2 md:px-4 lg:px-0 mx-auto h-28 flex justify-between items-center">
-        <Link href="/" className="z-10">
+      <div className="max-w-screen-xl px-4 lg:px-0 mx-auto h-28 flex justify-between items-center">
+        <Link href="/" className="z-30">
           <Image
             src={settings.data.site_logo.url}
             alt={settings.data.site_logo.alt || ""}

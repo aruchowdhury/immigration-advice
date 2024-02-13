@@ -1,0 +1,87 @@
+{
+  "id": "services",
+  "type": "SharedSlice",
+  "name": "Services",
+  "description": "Services",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "link_title": {
+          "type": "Text",
+          "config": {
+            "label": "Link Title",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {
+        "service_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Service Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "service_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Service Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "service_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Service Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "service_image": {
+          "type": "Image",
+          "config": {
+            "label": "Service Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

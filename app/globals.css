@@ -41,7 +41,13 @@ div {
 
 @layer components {
   h1 {
-    @apply uppercase text-4xl sm:text-6xl font-black text-slate-700;
+    @apply uppercase text-4xl md:text-6xl font-black text-slate-700;
+  }
+  h2 {
+    @apply uppercase text-2xl md:text-3xl font-black text-slate-700;
+  }
+  h3 {
+    @apply uppercase text-xl md:text-2xl font-black text-slate-700;
   }
   p,
   li {
