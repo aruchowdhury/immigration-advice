@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomePageDocumentDataSlicesSlice =
+  | FeaturesSlice
   | CallToActionSlice
   | ServicesSlice
   | HeroSlice;
@@ -502,6 +503,136 @@ export type CallToActionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Features → Primary*
+ */
+export interface FeaturesSliceDefaultPrimary {
+  /**
+   * Feature Block Title field in *Features → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.feature_block_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feature_block_title: prismic.TitleField;
+
+  /**
+   * Feature Block Text field in *Features → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.feature_block_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feature_block_text: prismic.RichTextField;
+
+  /**
+   * Feature Block Tag field in *Features → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.feature_block_tag
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feature_block_tag: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Features → Items*
+ */
+export interface FeaturesSliceDefaultItem {
+  /**
+   * Feature Title field in *Features → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].feature_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feature_title: prismic.TitleField;
+
+  /**
+   * Feature text field in *Features → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].feature_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feature_text: prismic.RichTextField;
+
+  /**
+   * Feature Btn Link field in *Features → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].feature_btn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  feature_btn_link: prismic.LinkField;
+
+  /**
+   * Feature Btn Text field in *Features → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].feature_btn_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  feature_btn_text: prismic.KeyTextField;
+
+  /**
+   * Feature Image field in *Features → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].feature_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  feature_image: prismic.ImageField<never>;
+
+  /**
+   * Feature Icon field in *Features → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].feature_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  feature_icon: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Features Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturesSliceDefaultPrimary>,
+  Simplify<FeaturesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Features*
+ */
+type FeaturesSliceVariation = FeaturesSliceDefault;
+
+/**
+ * Features Shared Slice
+ *
+ * - **API ID**: `features`
+ * - **Description**: Features
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesSlice = prismic.SharedSlice<
+  "features",
+  FeaturesSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -760,6 +891,11 @@ declare module "@prismicio/client" {
       CallToActionSliceDefaultItem,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
+      FeaturesSlice,
+      FeaturesSliceDefaultPrimary,
+      FeaturesSliceDefaultItem,
+      FeaturesSliceVariation,
+      FeaturesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

@@ -1,0 +1,96 @@
+{
+  "id": "features",
+  "type": "SharedSlice",
+  "name": "Features",
+  "description": "Features",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "feature_block_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Feature Block Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "feature_block_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Feature Block Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "feature_block_tag": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Feature Block Tag",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {
+        "feature_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Feature Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "feature_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Feature text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "feature_btn_link": {
+          "type": "Link",
+          "config": {
+            "label": "Feature Btn Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "feature_btn_text": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Btn Text",
+            "placeholder": ""
+          }
+        },
+        "feature_image": {
+          "type": "Image",
+          "config": {
+            "label": "Feature Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "feature_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Feature Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

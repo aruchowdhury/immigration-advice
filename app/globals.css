@@ -60,4 +60,7 @@ div {
   .btn-secondary {
     @apply py-2 px-5 bg-white text-slate-600 text-lg rounded-lg shadow-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring focus:ring-slate-600 focus:ring-opacity-75;
   }
+  .btn-gradient {
+    @apply px-5 py-2  text-slate-600 text-lg rounded-lg shadow-md bg-gradient-to-r from-red-100 via-red-200 to-orange-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100;
+  }
 }

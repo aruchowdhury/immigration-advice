@@ -17,7 +17,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="mx-auto pt-6 md:w-9/12 lg:w-8/12 relative flex flex-col align-middle bg-gradient-to-r from-red-200 to-orange-50 rounded-xl">
+      <div className="mx-auto pt-6 md:w-9/12 lg:w-8/12 relative flex flex-col align-middle bg-gradient-to-r from-red-100 to-orange-50 rounded-xl">
         <PrismicNextImage
           field={slice.primary.cta_image}
           className="h-24 w-24 rounded-full object-cover self-center"
@@ -43,7 +43,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <div className="flex flex-wrap justify-center gap-6">
             <PrismicNextLink
               field={slice.primary.cta_btn_link_1}
-              className="btn-primary py-2 px-4 mr-4 "
+              className="btn-primary mr-4 "
             >
               {slice.primary.cta_btn_title_1}
             </PrismicNextLink>

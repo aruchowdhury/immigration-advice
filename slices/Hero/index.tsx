@@ -39,13 +39,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           <div className="flex mt-8">
             <PrismicNextLink
               field={slice.primary.button_link_1}
-              className="btn-primary py-2 px-4 mr-4 "
+              className="btn-primary mr-4 "
             >
               {slice.primary.button_text_1}
             </PrismicNextLink>
             <PrismicNextLink
               field={slice.primary.button_link_2}
-              className="btn-secondary py-2 px-4"
+              className="btn-secondary"
             >
               {slice.primary.button_text_2}
             </PrismicNextLink>

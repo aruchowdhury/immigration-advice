@@ -23,7 +23,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
             field={slice.primary.title}
             components={{
               heading2: ({ children }) => (
-                <h2 className="leading-tight mb-6">{children}</h2>
+                <h2 className="leading-tight mb-4">{children}</h2>
               ),
             }}
           />
@@ -34,9 +34,9 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
             }}
           />
         </div>
-        <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
-          {slice.items.map((item) => (
-            <div key={item.service_name} className="relative">
+        <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-6 text-center gap-y-6 sm:gap-x-6 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-16 sm:text-left">
+          {slice.items.map((item, index) => (
+            <div key={index} className="relative">
               <div className="absolute -inset-1">
                 <div className="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-red-300 via-grey-500 to-slate-400" />
               </div>
