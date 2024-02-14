@@ -5,6 +5,10 @@ import dynamic from "next/dynamic";
 export const components = {
   call_to_action: dynamic(() => import("./CallToAction")),
   features: dynamic(() => import("./Features")),
+  full_page_image: dynamic(() => import("./FullPageImage")),
   hero: dynamic(() => import("./Hero")),
+  image_and_text: dynamic(() => import("./ImageAndText")),
+  rich_text_paragraph: dynamic(() => import("./RichTextParagraph")),
   services: dynamic(() => import("./Services")),
+  title_date_and_author: dynamic(() => import("./TitleDateAndAuthor")),
 };

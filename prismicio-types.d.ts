@@ -5,6 +5,10 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomePageDocumentDataSlicesSlice =
+  | ImageAndTextSlice
+  | RichTextParagraphSlice
+  | TitleDateAndAuthorSlice
+  | FullPageImageSlice
   | FeaturesSlice
   | CallToActionSlice
   | ServicesSlice
@@ -84,7 +88,14 @@ export type HomePageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice =
+  | ServicesSlice
+  | RichTextParagraphSlice
+  | TitleDateAndAuthorSlice
+  | ImageAndTextSlice
+  | CallToActionSlice
+  | FeaturesSlice
+  | FullPageImageSlice;
 
 /**
  * Content for Page documents
@@ -633,6 +644,51 @@ export type FeaturesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *FullPageImage → Primary*
+ */
+export interface FullPageImageSliceDefaultPrimary {
+  /**
+   * Image field in *FullPageImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: full_page_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for FullPageImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FullPageImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FullPageImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FullPageImage*
+ */
+type FullPageImageSliceVariation = FullPageImageSliceDefault;
+
+/**
+ * FullPageImage Shared Slice
+ *
+ * - **API ID**: `full_page_image`
+ * - **Description**: FullPageImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FullPageImageSlice = prismic.SharedSlice<
+  "full_page_image",
+  FullPageImageSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -743,6 +799,305 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *ImageAndText → Primary*
+ */
+export interface ImageAndTextSliceDefaultPrimary {
+  /**
+   * Title field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Text field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Link Text field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Text Color field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Image field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImageAndText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageAndTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageAndTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *ImageAndText → Primary*
+ */
+export interface ImageAndTextSliceImageAndTextRightPrimary {
+  /**
+   * Title field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Text field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Link Text field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Text Color field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Image field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * ImageAndText-Right variation for ImageAndText Slice
+ *
+ * - **API ID**: `imageAndTextRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageAndTextSliceImageAndTextRight = prismic.SharedSliceVariation<
+  "imageAndTextRight",
+  Simplify<ImageAndTextSliceImageAndTextRightPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *ImageAndText → Primary*
+ */
+export interface ImageAndTextSliceImageAndTextLeftPrimary {
+  /**
+   * Title field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Text field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Link Text field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Text Color field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Image field in *ImageAndText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_and_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * ImageAndText-Left variation for ImageAndText Slice
+ *
+ * - **API ID**: `imageAndTextLeft`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageAndTextSliceImageAndTextLeft = prismic.SharedSliceVariation<
+  "imageAndTextLeft",
+  Simplify<ImageAndTextSliceImageAndTextLeftPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageAndText*
+ */
+type ImageAndTextSliceVariation =
+  | ImageAndTextSliceDefault
+  | ImageAndTextSliceImageAndTextRight
+  | ImageAndTextSliceImageAndTextLeft;
+
+/**
+ * ImageAndText Shared Slice
+ *
+ * - **API ID**: `image_and_text`
+ * - **Description**: ImageAndText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageAndTextSlice = prismic.SharedSlice<
+  "image_and_text",
+  ImageAndTextSliceVariation
+>;
+
+/**
+ * Primary content in *RichTextParagraph → Primary*
+ */
+export interface RichTextParagraphSliceDefaultPrimary {
+  /**
+   * Text field in *RichTextParagraph → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_paragraph.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RichTextParagraph Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextParagraphSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RichTextParagraphSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RichTextParagraph*
+ */
+type RichTextParagraphSliceVariation = RichTextParagraphSliceDefault;
+
+/**
+ * RichTextParagraph Shared Slice
+ *
+ * - **API ID**: `rich_text_paragraph`
+ * - **Description**: RichTextParagraph
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextParagraphSlice = prismic.SharedSlice<
+  "rich_text_paragraph",
+  RichTextParagraphSliceVariation
+>;
 
 /**
  * Primary content in *Services → Primary*
@@ -864,6 +1219,71 @@ export type ServicesSlice = prismic.SharedSlice<
   ServicesSliceVariation
 >;
 
+/**
+ * Primary content in *TitleDateAndAuthor → Primary*
+ */
+export interface TitleDateAndAuthorSliceDefaultPrimary {
+  /**
+   * Title field in *TitleDateAndAuthor → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_date_and_author.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Author field in *TitleDateAndAuthor → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_date_and_author.primary.author
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  author: prismic.RichTextField;
+
+  /**
+   * Date field in *TitleDateAndAuthor → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_date_and_author.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+}
+
+/**
+ * Default variation for TitleDateAndAuthor Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleDateAndAuthorSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TitleDateAndAuthorSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TitleDateAndAuthor*
+ */
+type TitleDateAndAuthorSliceVariation = TitleDateAndAuthorSliceDefault;
+
+/**
+ * TitleDateAndAuthor Shared Slice
+ *
+ * - **API ID**: `title_date_and_author`
+ * - **Description**: TitleDateAndAuthor
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleDateAndAuthorSlice = prismic.SharedSlice<
+  "title_date_and_author",
+  TitleDateAndAuthorSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -896,15 +1316,35 @@ declare module "@prismicio/client" {
       FeaturesSliceDefaultItem,
       FeaturesSliceVariation,
       FeaturesSliceDefault,
+      FullPageImageSlice,
+      FullPageImageSliceDefaultPrimary,
+      FullPageImageSliceVariation,
+      FullPageImageSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ImageAndTextSlice,
+      ImageAndTextSliceDefaultPrimary,
+      ImageAndTextSliceImageAndTextRightPrimary,
+      ImageAndTextSliceImageAndTextLeftPrimary,
+      ImageAndTextSliceVariation,
+      ImageAndTextSliceDefault,
+      ImageAndTextSliceImageAndTextRight,
+      ImageAndTextSliceImageAndTextLeft,
+      RichTextParagraphSlice,
+      RichTextParagraphSliceDefaultPrimary,
+      RichTextParagraphSliceVariation,
+      RichTextParagraphSliceDefault,
       ServicesSlice,
       ServicesSliceDefaultPrimary,
       ServicesSliceDefaultItem,
       ServicesSliceVariation,
       ServicesSliceDefault,
+      TitleDateAndAuthorSlice,
+      TitleDateAndAuthorSliceDefaultPrimary,
+      TitleDateAndAuthorSliceVariation,
+      TitleDateAndAuthorSliceDefault,
     };
   }
 }

@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Beauty"
+						}
+					}
+				]
+			},
+			"date": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2020-10-27"
+			},
+			"author": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do fugiat incididunt adipisicing enim do dolor reprehenderit elit officia qui anim ad sint. Minim qui amet cillum tempor eu proident pariatur proident labore pariatur."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
