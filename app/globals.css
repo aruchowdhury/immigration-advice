@@ -49,6 +49,9 @@ div {
   h3 {
     @apply uppercase text-xl md:text-2xl font-black text-slate-700;
   }
+  h4 {
+    @apply uppercase text-lg md:text-xl font-black text-slate-700;
+  }
   p,
   li {
     @apply text-sm sm:text-base text-slate-700;

@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomePageDocumentDataSlicesSlice =
+  | AccordionSlice
   | AdvisorProfileCardSlice
   | ImageAndTextSlice
   | RichTextParagraphSlice
@@ -383,6 +384,76 @@ export type AllDocumentTypes =
   | HomePageDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *Accordion → Primary*
+ */
+export interface AccordionSliceDefaultPrimary {
+  /**
+   * Title field in *Accordion → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Accordion → Items*
+ */
+export interface AccordionSliceDefaultItem {
+  /**
+   * Title field in *Accordion → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Text field in *Accordion → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Accordion Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AccordionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AccordionSliceDefaultPrimary>,
+  Simplify<AccordionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Accordion*
+ */
+type AccordionSliceVariation = AccordionSliceDefault;
+
+/**
+ * Accordion Shared Slice
+ *
+ * - **API ID**: `accordion`
+ * - **Description**: Accordion
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AccordionSlice = prismic.SharedSlice<
+  "accordion",
+  AccordionSliceVariation
+>;
 
 /**
  * Primary content in *AdvisorProfileCard → Primary*
@@ -1447,6 +1518,11 @@ declare module "@prismicio/client" {
       SettingsDocumentDataFooterNavigationItem,
       SettingsDocumentDataSocialLinksItem,
       AllDocumentTypes,
+      AccordionSlice,
+      AccordionSliceDefaultPrimary,
+      AccordionSliceDefaultItem,
+      AccordionSliceVariation,
+      AccordionSliceDefault,
       AdvisorProfileCardSlice,
       AdvisorProfileCardSliceDefaultPrimary,
       AdvisorProfileCardSliceDefaultItem,

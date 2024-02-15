@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "accordion": {
+              "type": "SharedSlice"
+            },
             "advisor_profile_card": {
               "type": "SharedSlice"
             },
