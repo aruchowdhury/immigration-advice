@@ -4,28 +4,28 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomePageDocumentDataSlicesSlice =
-  | AccordionSlice
-  | AdvisorProfileCardSlice
+type HomepageDocumentDataSlicesSlice =
   | ImageAndTextSlice
-  | RichTextParagraphSlice
-  | TitleDateAndAuthorSlice
-  | FullPageImageSlice
-  | FeaturesSlice
   | CallToActionSlice
+  | RichTextParagraphSlice
   | ServicesSlice
-  | HeroSlice;
+  | AccordionSlice
+  | HeroSlice
+  | TitleDateAndAuthorSlice
+  | AdvisorProfileCardSlice
+  | FullPageImageSlice
+  | FeaturesSlice;
 
 /**
  * Content for Homepage documents
  */
-interface HomePageDocumentData {
+interface HomepageDocumentData {
   /**
    * Title field in *Homepage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.title
+   * - **API ID Path**: homepage.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -36,30 +36,19 @@ interface HomePageDocumentData {
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.slices[]
+   * - **API ID Path**: homepage.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice> /**
-   * Meta Title field in *Homepage*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: home_page.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
    * Meta Description field in *Homepage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: home_page.meta_description
+   * - **API ID Path**: homepage.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -67,30 +56,44 @@ interface HomePageDocumentData {
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.meta_image
+   * - **API ID Path**: homepage.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
 }
 
 /**
  * Homepage document from Prismic
  *
- * - **API ID**: `home_page`
+ * - **API ID**: `homepage`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HomePageDocument<Lang extends string = string> =
+export type HomepageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
-    Simplify<HomePageDocumentData>,
-    "home_page",
+    Simplify<HomepageDocumentData>,
+    "homepage",
     Lang
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HeroSlice
+  | AdvisorProfileCardSlice
+  | AccordionSlice
   | ServicesSlice
   | RichTextParagraphSlice
   | TitleDateAndAuthorSlice
@@ -381,7 +384,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
-  | HomePageDocument
+  | HomepageDocument
   | PageDocument
   | SettingsDocument;
 
@@ -1506,9 +1509,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      HomePageDocument,
-      HomePageDocumentData,
-      HomePageDocumentDataSlicesSlice,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

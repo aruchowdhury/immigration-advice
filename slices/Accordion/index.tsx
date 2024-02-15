@@ -28,12 +28,12 @@ const Accordion = ({ slice }: AccordionProps): JSX.Element => {
           }}
         />
         {slice.items.map((item, index) => (
-          <div key={index} className="max-w-screen-lg mx-auto p-10">
+          <div key={index} className="max-w-screen-lg mx-auto px-12">
             <PrismicRichText
               field={item.title}
               components={{
                 heading4: ({ children }) => (
-                  <h4 className="w-full py-5 font-medium text-left border-b border-gray-300">
+                  <h4 className="w-full py-3 font-medium text-left border-b border-gray-300">
                     {children}
                   </h4>
                 ),

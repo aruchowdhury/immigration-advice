@@ -11,7 +11,7 @@ import {
  * Components for `ImageAndText`.
  */
 const textComponent = (slice: any) => (
-  <div className="relative flex flex-col justify-center items-center h-full">
+  <div className="relative flex flex-col justify-center items-center h-full lg:px-20">
     <PrismicRichText
       field={slice.primary.title}
       components={{
@@ -26,7 +26,10 @@ const textComponent = (slice: any) => (
       field={slice.primary.text}
       components={{
         paragraph: ({ children }) => (
-          <p className="mb-6" style={{ color: `${slice.primary.text_color}` }}>
+          <p
+            className="mb-6 text-center"
+            style={{ color: `${slice.primary.text_color}` }}
+          >
             {children}
           </p>
         ),

@@ -17,6 +17,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "advisor_profile_card": {
+              "type": "SharedSlice"
+            },
+            "accordion": {
+              "type": "SharedSlice"
+            },
             "services": {
               "type": "SharedSlice"
             },
