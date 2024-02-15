@@ -73,7 +73,7 @@ const ImageAndText = ({ slice }: ImageAndTextProps): JSX.Element => {
             {imageComponent(slice)}
           </div>
           <div
-            className={`bg-white md:z-10 md:shadow-lg md:absolute -mt-20 md:mt-0 w-4/5 lg:w-3/5 rounded-xl
+            className={`bg-white md:z-10 lg:shadow-lg lg:absolute -mt-20 lg:mt-0 w-4/5 lg:w-3/5 rounded-xl
             ${slice.variation === "imageAndTextLeft" ? "lg:left-0 lg:ml-24 xl:ml-20" : "lg:right-0 lg:me-24 xl:me-20"}`}
           >
             <div className="flex flex-col p-12 md:px-16">

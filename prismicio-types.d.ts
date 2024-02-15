@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomePageDocumentDataSlicesSlice =
+  | AdvisorProfileCardSlice
   | ImageAndTextSlice
   | RichTextParagraphSlice
   | TitleDateAndAuthorSlice
@@ -382,6 +383,146 @@ export type AllDocumentTypes =
   | HomePageDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AdvisorProfileCard → Primary*
+ */
+export interface AdvisorProfileCardSliceDefaultPrimary {
+  /**
+   * Title field in *AdvisorProfileCard → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * View All Link field in *AdvisorProfileCard → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.primary.view_all_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  view_all_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *AdvisorProfileCard → Items*
+ */
+export interface AdvisorProfileCardSliceDefaultItem {
+  /**
+   * Name field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.TitleField;
+
+  /**
+   * Text field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Profile Image field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].profile_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  profile_image: prismic.ImageField<never>;
+
+  /**
+   * Youtube Link field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].youtube_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  youtube_link: prismic.LinkField;
+
+  /**
+   * Linkedin Link field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].linkedin_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_link: prismic.LinkField;
+
+  /**
+   * Facebook Link field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].facebook_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  facebook_link: prismic.LinkField;
+
+  /**
+   * View Btn Link field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].view_btn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  view_btn_link: prismic.LinkField;
+
+  /**
+   * Role field in *AdvisorProfileCard → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_profile_card.items[].role
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  role: prismic.RichTextField;
+}
+
+/**
+ * Default variation for AdvisorProfileCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AdvisorProfileCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AdvisorProfileCardSliceDefaultPrimary>,
+  Simplify<AdvisorProfileCardSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *AdvisorProfileCard*
+ */
+type AdvisorProfileCardSliceVariation = AdvisorProfileCardSliceDefault;
+
+/**
+ * AdvisorProfileCard Shared Slice
+ *
+ * - **API ID**: `advisor_profile_card`
+ * - **Description**: AdvisorProfileCard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AdvisorProfileCardSlice = prismic.SharedSlice<
+  "advisor_profile_card",
+  AdvisorProfileCardSliceVariation
+>;
 
 /**
  * Primary content in *CallToAction → Primary*
@@ -1306,6 +1447,11 @@ declare module "@prismicio/client" {
       SettingsDocumentDataFooterNavigationItem,
       SettingsDocumentDataSocialLinksItem,
       AllDocumentTypes,
+      AdvisorProfileCardSlice,
+      AdvisorProfileCardSliceDefaultPrimary,
+      AdvisorProfileCardSliceDefaultItem,
+      AdvisorProfileCardSliceVariation,
+      AdvisorProfileCardSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceDefaultItem,

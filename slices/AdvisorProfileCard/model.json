@@ -1,0 +1,105 @@
+{
+  "id": "advisor_profile_card",
+  "type": "SharedSlice",
+  "name": "AdvisorProfileCard",
+  "description": "AdvisorProfileCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "view_all_link": {
+          "type": "Link",
+          "config": {
+            "label": "View All Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {
+        "name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "profile_image": {
+          "type": "Image",
+          "config": {
+            "label": "Profile Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "youtube_link": {
+          "type": "Link",
+          "config": {
+            "label": "Youtube Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "linkedin_link": {
+          "type": "Link",
+          "config": {
+            "label": "Linkedin Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "facebook_link": {
+          "type": "Link",
+          "config": {
+            "label": "Facebook Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "view_btn_link": {
+          "type": "Link",
+          "config": {
+            "label": "View Btn Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "role": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Role",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      }
+    }
+  ]
+}

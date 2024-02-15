@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  advisor_profile_card: dynamic(() => import("./AdvisorProfileCard")),
   call_to_action: dynamic(() => import("./CallToAction")),
   features: dynamic(() => import("./Features")),
   full_page_image: dynamic(() => import("./FullPageImage")),
