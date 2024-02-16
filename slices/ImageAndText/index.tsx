@@ -11,12 +11,15 @@ import {
  * Components for `ImageAndText`.
  */
 const textComponent = (slice: any) => (
-  <div className="relative flex flex-col justify-center items-center h-full lg:px-20">
+  <div className="relative flex flex-col justify-center items-center h-full">
     <PrismicRichText
       field={slice.primary.title}
       components={{
         heading2: ({ children }) => (
-          <h2 className="mb-4" style={{ color: `${slice.primary.text_color}` }}>
+          <h2
+            className="mb-4 text-center"
+            style={{ color: `${slice.primary.text_color}` }}
+          >
             {children}
           </h2>
         ),
@@ -35,9 +38,13 @@ const textComponent = (slice: any) => (
         ),
       }}
     />
-    <PrismicNextLink field={slice.primary.link} className="btn-gradient">
-      {slice.primary.link_text}
-    </PrismicNextLink>
+    {slice.primary.link && slice.primary.link_text ? (
+      <PrismicNextLink field={slice.primary.link} className="btn-gradient">
+        {slice.primary.link_text}
+      </PrismicNextLink>
+    ) : (
+      ""
+    )}
   </div>
 );
 
@@ -63,7 +70,7 @@ const ImageAndText = ({ slice }: ImageAndTextProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       {slice.variation === "default" ? (
-        <div className="relative overflow-hidden w-full aspect-[11/4]">
+        <div className="relative overflow-hidden w-full aspect-[11/6] md:aspect-[11/4]">
           <div className="absolute inset-0">{imageComponent(slice)}</div>
           {textComponent(slice)}
         </div>

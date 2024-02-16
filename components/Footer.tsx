@@ -58,7 +58,7 @@ async function Footer() {
               <PrismicNextLink
                 key={label}
                 field={link}
-                className="hover:text-red-400 me-4 md:me-6"
+                className="hover:text-red-400 me-4 md:me-6 text-sm"
               >
                 {label}
               </PrismicNextLink>

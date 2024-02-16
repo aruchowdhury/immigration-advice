@@ -21,7 +21,7 @@ const Accordion = ({ slice }: AccordionProps): JSX.Element => {
           field={slice.primary.title}
           components={{
             heading2: ({ children }) => (
-              <h2 className="mr-10 text-4xl font-bold leading-none md:text-5xl">
+              <h2 className="mr-10 text-4xl font-bold md:text-5xl">
                 {children}
               </h2>
             ),

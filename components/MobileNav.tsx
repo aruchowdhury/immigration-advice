@@ -4,7 +4,11 @@ import { PrismicNextLink } from "@prismicio/next";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 
-function MobileNav({ settings }) {
+interface MobileNavProps {
+  settings: any;
+}
+
+function MobileNav({ settings }: MobileNavProps) {
   const [mobileNav, setMobileNav] = useState(false);
 
   return (
@@ -21,12 +25,12 @@ function MobileNav({ settings }) {
       </div>
       {mobileNav && (
         <ul className="card-bg flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen text-red-700 z-10">
-          {settings.data.header_navigation.map(({ link, label }) => (
+          {settings.data.header_navigation.map((item: any, index: number) => (
             <li
-              key={label}
+              key={index}
               className="px-4 cursor-pointer capitalize py-6 text-2xl"
             >
-              <PrismicNextLink field={link}>{label}</PrismicNextLink>
+              <PrismicNextLink field={item.link}>{item.label}</PrismicNextLink>
             </li>
           ))}
         </ul>

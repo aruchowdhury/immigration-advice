@@ -16,14 +16,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="mx-auto py-16 flex relative items-center overflow-hidden">
+      <div className="mx-auto py-10 flex relative items-center overflow-hidden">
         <div className="pe-4 sm:w-2/4 lg:w-3/6 flex flex-col relative">
           <span className="w-20 h-2 bg-slate-700 mb-12"></span>
           <PrismicRichText
             field={slice.primary.title}
             components={{
               heading1: ({ children }) => (
-                <h1 className="flex flex-col leading-none pb-4">{children}</h1>
+                <h1 className="flex flex-col pb-4">{children}</h1>
               ),
             }}
           />

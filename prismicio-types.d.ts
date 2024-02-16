@@ -1384,6 +1384,16 @@ export interface ServicesSliceDefaultItem {
   service_description: prismic.RichTextField;
 
   /**
+   * Service Link field in *Services → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.items[].service_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  service_link: prismic.LinkField;
+
+  /**
    * Service Icon field in *Services → Items*
    *
    * - **Field Type**: Image

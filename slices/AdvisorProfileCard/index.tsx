@@ -24,21 +24,17 @@ const AdvisorProfileCard = ({
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="flex flex-col justify-between py-10 w-full">
+      <div className="flex flex-col justify-between pt-10 -mb-10 w-full">
         <div className="flex flex-wrap items-center justify-between mb-20">
           <PrismicRichText
             field={slice.primary.title}
             components={{
-              heading2: ({ children }) => (
-                <h2 className="mr-10 text-4xl font-bold leading-none md:text-5xl">
-                  {children}
-                </h2>
-              ),
+              heading2: ({ children }) => <h2 className="mr-10">{children}</h2>,
             }}
           />
           <PrismicNextLink
             field={slice.primary.view_all_link}
-            className="block pb-1 mt-2 text-base font-black text-slate-600 uppercase border-b border-transparent hover:border-red-300"
+            className="block mt-2 text-base font-black ppercase cursor-pointer border-b border-transparent text-red-400 hover:text-red-500"
           >
             View all
           </PrismicNextLink>

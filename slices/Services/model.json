@@ -65,6 +65,14 @@
             "single": "paragraph"
           }
         },
+        "service_link": {
+          "type": "Link",
+          "config": {
+            "label": "Service Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
         "service_icon": {
           "type": "Image",
           "config": {

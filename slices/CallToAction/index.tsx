@@ -17,13 +17,13 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="mx-auto pt-6 md:w-9/12 lg:w-8/12 relative flex flex-col align-middle bg-gradient-to-r from-red-100 to-orange-50 rounded-xl">
+      <div className="mx-auto pt-6 mb-10 md:w-9/12 lg:w-8/12 relative flex flex-col align-middle shadow-xl bg-gradient-to-r from-red-100 to-orange-50 rounded-xl">
         <PrismicNextImage
           field={slice.primary.cta_image}
-          className="h-24 w-24 rounded-full object-cover self-center"
+          className="h-32 w-32 rounded-full object-cover self-center"
         />
 
-        <div className="my-6 m-auto space-y-6">
+        <div className="my-6 m-auto px-12 space-y-6">
           <PrismicRichText
             field={slice.primary.cta_ttile}
             components={{
