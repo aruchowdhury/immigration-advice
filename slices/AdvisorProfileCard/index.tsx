@@ -87,7 +87,7 @@ const AdvisorProfileCard = ({
                       field={item.view_btn_link}
                       className="btn-primary self-center text-sm"
                     >
-                      Connect
+                      Learn more
                     </PrismicNextLink>
                     <div className="w-full flex justify-center py-5">
                       <PrismicNextLink
