@@ -70,7 +70,7 @@ const ImageAndText = ({ slice }: ImageAndTextProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       {slice.variation === "default" ? (
-        <div className="relative overflow-hidden w-full aspect-[11/6] md:aspect-[11/4]">
+        <div className="relative overflow-hidden w-full aspect-[11/8] md:aspect-[11/4]">
           <div className="absolute inset-0">{imageComponent(slice)}</div>
           {textComponent(slice)}
         </div>

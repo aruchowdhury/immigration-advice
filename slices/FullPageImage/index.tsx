@@ -17,7 +17,7 @@ const FullPageImage = ({ slice }: FullPageImageProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="px-auto w-full aspect-[11/4]">
+      <div className="px-auto w-full aspect-[11/7] md:aspect-[11/4]">
         <PrismicImage
           field={slice.primary.image}
           className="w-full h-full object-cover object-center"

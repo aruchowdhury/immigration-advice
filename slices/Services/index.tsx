@@ -39,7 +39,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
             {slice.primary.link_title}
           </PrismicNextLink>
         </div>
-        <div className="grid max-w-full lg:max-w-full grid-cols-1 mx-auto mt-6 text-center gap-y-6 sm:gap-x-6 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-16 sm:text-left">
+        <div className="grid max-w-full lg:max-w-full grid-cols-1 mx-auto mt-6 gap-y-6 sm:gap-x-6 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-16 text-left">
           {slice.items.map((item, index) => (
             <PrismicNextLink
               field={item.service_link}
@@ -54,7 +54,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
                 style={{ backgroundImage: `url(${item.service_image.url})` }}
               >
                 <div className="p-9">
-                  <div className="w-12 h-12 mx-auto sm:mx-0">
+                  <div className="w-12 h-12">
                     <PrismicNextImage field={item.service_icon} />
                   </div>
 
@@ -70,13 +70,13 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
                     field={item.service_description}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className="mt-4 mb-16">{children}</p>
+                        <p className="mt-4 mb-12">{children}</p>
                       ),
                     }}
                   />
                   <PrismicNextLink
                     field={item.service_link}
-                    className="absolute bottom-10 mt-4 flex flex-row text-slate-600 border-b border-red-300 hover:text-red-300"
+                    className="absolute bottom-10 mt-4 flex flex-row text-slate-500 hover:text-red-300"
                   >
                     <span>View details</span>
                     <IoIosArrowRoundForward className="self-center" />
