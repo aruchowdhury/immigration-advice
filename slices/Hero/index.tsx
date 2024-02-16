@@ -52,11 +52,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         </div>
         <div className="hidden md:flex sm:w-2/4 lg:w-3/6 relative">
           {!slice.primary.video_link ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: slice.primary.video_link.html,
-              }}
-            />
+            <div />
           ) : (
             <PrismicNextImage
               field={slice.primary.image}
