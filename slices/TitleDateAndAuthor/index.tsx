@@ -2,15 +2,7 @@ import Bounded from "@/components/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { IoPersonOutline, IoCalendarClearOutline } from "react-icons/io5";
-
-function formatDate(inputDateStr: any) {
-  const date = new Date(inputDateStr);
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
+import { formatDate } from "@/utils/HelperFunctions";
 
 /**
  * Props for `TitleDateAndAuthor`.

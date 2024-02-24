@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | ArticleListSlice
   | ImageAndTextSlice
   | CallToActionSlice
   | RichTextParagraphSlice
@@ -596,6 +597,176 @@ type AdvisorProfileCardSliceVariation = AdvisorProfileCardSliceDefault;
 export type AdvisorProfileCardSlice = prismic.SharedSlice<
   "advisor_profile_card",
   AdvisorProfileCardSliceVariation
+>;
+
+/**
+ * Primary content in *ArticleList → Primary*
+ */
+export interface ArticleListSliceDefaultPrimary {
+  /**
+   * Title field in *ArticleList → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Text field in *ArticleList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *ArticleList → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Link Text field in *ArticleList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ArticleList → Items*
+ */
+export interface ArticleListSliceDefaultItem {
+  /**
+   * Article Link field in *ArticleList → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].article_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  article_link: prismic.LinkField;
+
+  /**
+   * Article Banner Image field in *ArticleList → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].article_banner_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  article_banner_image: prismic.ImageField<never>;
+
+  /**
+   * Title Tag  field in *ArticleList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].title_tag
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_tag: prismic.RichTextField;
+
+  /**
+   * Article Title field in *ArticleList → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].article_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  article_title: prismic.TitleField;
+
+  /**
+   * Article Text field in *ArticleList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].article_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  article_text: prismic.RichTextField;
+
+  /**
+   * Author Image field in *ArticleList → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].author_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  author_image: prismic.ImageField<never>;
+
+  /**
+   * Author Name field in *ArticleList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].author_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  author_name: prismic.RichTextField;
+
+  /**
+   * Date Published field in *ArticleList → Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].date_published
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date_published: prismic.DateField;
+
+  /**
+   * Reading Time field in *ArticleList → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_list.items[].reading_time
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  reading_time: prismic.NumberField;
+}
+
+/**
+ * Default variation for ArticleList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ArticleListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ArticleListSliceDefaultPrimary>,
+  Simplify<ArticleListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ArticleList*
+ */
+type ArticleListSliceVariation = ArticleListSliceDefault;
+
+/**
+ * ArticleList Shared Slice
+ *
+ * - **API ID**: `article_list`
+ * - **Description**: ArticleList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ArticleListSlice = prismic.SharedSlice<
+  "article_list",
+  ArticleListSliceVariation
 >;
 
 /**
@@ -1541,6 +1712,11 @@ declare module "@prismicio/client" {
       AdvisorProfileCardSliceDefaultItem,
       AdvisorProfileCardSliceVariation,
       AdvisorProfileCardSliceDefault,
+      ArticleListSlice,
+      ArticleListSliceDefaultPrimary,
+      ArticleListSliceDefaultItem,
+      ArticleListSliceVariation,
+      ArticleListSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceDefaultItem,
