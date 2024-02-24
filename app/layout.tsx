@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -40,7 +42,7 @@ export default function RootLayout({
     <html lang="en" className={clsx(nunito.variable, nunitoSans.variable)}>
       <body>
         <Header />
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
