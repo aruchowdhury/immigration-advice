@@ -1,8 +1,6 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
-import Link from "next/link";
 import MobileNav from "./MobileNav";
-import Image from "next/image";
 import { PrismicImage } from "@prismicio/react";
 
 async function Header() {
@@ -12,12 +10,12 @@ async function Header() {
   return (
     <header className="w-full">
       <div className="max-w-screen-xl px-4 lg:px-0 mx-auto h-28 flex justify-between items-center">
-        <Link
-          href="/"
+        <PrismicNextLink
+          field={settings.data.site_logo_link}
           className="z-30 w-60 lg:w-72 flex justify-start align-middle"
         >
           <PrismicImage field={settings.data.site_logo} className="w-full" />
-        </Link>
+        </PrismicNextLink>
         <ul className="hidden md:flex">
           {settings.data.header_navigation.map(({ link, label }) => (
             <li

@@ -21,6 +21,14 @@
           "thumbnails": []
         }
       },
+      "site_logo_link": {
+        "type": "Link",
+        "config": {
+          "label": "Site Logo Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "meta_description": {
         "type": "Text",
         "config": {

@@ -274,6 +274,17 @@ interface SettingsDocumentData {
   site_logo: prismic.ImageField<never>;
 
   /**
+   * Site Logo Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_logo_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  site_logo_link: prismic.LinkField;
+
+  /**
    * Meta Description field in *Settings*
    *
    * - **Field Type**: Text

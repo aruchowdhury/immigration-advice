@@ -11,9 +11,12 @@ async function Footer() {
       <div className="max-w-screen-xl mx-auto md:py-8 px-4 lg:px-0">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex flex-col justify-start items-start">
-            <Link href="/" className="mb-3 self-start w-40">
+            <PrismicNextLink
+              field={settings.data.site_logo_link}
+              className="mb-3 self-start w-40"
+            >
               <PrismicImage field={settings.data.site_logo} />
-            </Link>
+            </PrismicNextLink>
             <div className="whitespace-nowrap text-sm font-medium flex flex-col justify-start gap-1">
               {settings.data.contact_email && (
                 <PrismicNextLink
