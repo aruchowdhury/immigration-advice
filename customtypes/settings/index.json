@@ -26,6 +26,7 @@
         "config": {
           "label": "Site Logo Link",
           "placeholder": "",
+          "allowTargetBlank": false,
           "select": null
         }
       },
