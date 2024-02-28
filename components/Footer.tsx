@@ -1,6 +1,5 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
-import Link from "next/link";
 import { PrismicImage } from "@prismicio/react";
 
 async function Footer() {
@@ -76,9 +75,12 @@ async function Footer() {
         <hr className="my-4 border-gray-300 sm:mx-auto lg:my-6" />
         <span className="block text-sm text-slate-400 sm:text-center dark:text-gray-400">
           ©{new Date().getFullYear()}
-          <Link href="/" className="hover:underline">
+          <PrismicNextLink
+            field={settings.data.site_logo_link}
+            className="hover:underline"
+          >
             .{settings.data.site_title}™
-          </Link>
+          </PrismicNextLink>
           .All Rights Reserved.
         </span>
       </div>

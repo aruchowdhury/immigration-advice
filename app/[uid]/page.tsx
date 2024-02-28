@@ -7,15 +7,6 @@ import { components } from "@/slices";
 
 type Params = { uid: string };
 
-export default async function Page({ params }: { params: Params }) {
-  const client = createClient();
-  const page = await client
-    .getByUID("page", params.uid)
-    .catch(() => notFound());
-
-  return <SliceZone slices={page.data.slices} components={components} />;
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -39,4 +30,13 @@ export async function generateStaticParams() {
   return pages.map((page) => {
     return { uid: page.uid };
   });
+}
+
+export default async function Page({ params }: { params: Params }) {
+  const client = createClient();
+  const page = await client
+    .getByUID("page", params.uid)
+    .catch(() => notFound());
+
+  return <SliceZone slices={page.data.slices} components={components} />;
 }
